@@ -2,26 +2,14 @@ class MarvelService
   include HTTParty
   base_uri 'https://gateway.marvel.com/v1/public'
 
-  def initialize(offset = 0, limit = 20, character_name = nil)
-    @offset = offset
-    @limit = limit
-    @character_name = character_name
+  def initialize
     @private_key = ENV.fetch('MARVEL_PRIVATE_KEY', nil)
     @public_key = ENV.fetch('MARVEL_PUBLIC_KEY', nil)
-    @ts = DateTime.now.to_i
-    @hash = Digest::MD5.hexdigest("#{@ts}#{@private_key}#{@public_key}")
   end
 
-  def fetch_comics
-    query = {
-      limit: @limit,
-      offset: @offset,
-      orderBy: '-onsaleDate',
-      apikey: @public_key,
-      ts: @ts,
-      hash: @hash
-    }
-    # self.class.get('/comics', query:)
+  def fetch_comics(offset: 0, limit: 20)
+    query = build_query(limit:, offset:)
+    # response = self.class.get('/comics', query: query)
 
     # MOCK
     {
@@ -45,31 +33,12 @@ class MarvelService
     }
   end
 
-  def fetch_comics_by_character
-    characters_query = {
-      name: @character_name,
-      apikey: @public_key,
-      ts: @ts,
-      hash: @hash
-    }
-    # self.class.get('/characters/', query: characters_query)
+  def fetch_comics_by_character(character_name:, offset: 0, limit: 20)
+    character = fetch_character_by_name(character_name)
+    return { results: [] } unless character
 
-    # MOCK
-    character = {
-      id: 123,
-      name: 'Deadpool'
-    }
-
-    comics_query = {
-      limit: @limit,
-      offset: @offset,
-      orderBy: '-onsaleDate',
-      apikey: @public_key,
-      ts: @ts,
-      hash: @hash
-    }
-
-    # self.class.get("/characters/#{character[:id]}/comics", query: comics_query)
+    query = build_query(limit:, offset:)
+    # response = self.class.get("/characters/#{character[:id]}/comics", query: query)
 
     # MOCK
     {
@@ -81,5 +50,30 @@ class MarvelService
         }
       ]
     }
+  end
+
+  private
+
+  def fetch_character_by_name(name)
+    query = build_query(name:)
+    # response = self.class.get('/characters/', query: query)
+    # Assume the character fetching logic is implemented here
+
+    # MOCK
+    { id: 123, name: 'Deadpool' }
+  end
+
+  def build_query(name: nil, limit: 20, offset: 0)
+    ts = DateTime.now.to_i
+    hash = Digest::MD5.hexdigest("#{ts}#{@private_key}#{@public_key}")
+
+    {
+      apikey: @public_key,
+      ts:,
+      hash:,
+      limit:,
+      offset:,
+      name:
+    }.compact
   end
 end
