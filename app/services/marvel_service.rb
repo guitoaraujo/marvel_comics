@@ -27,14 +27,17 @@ class MarvelService
     {
       results: [
         {
+          id: 1,
           title: 'X-Force (2024) #1',
           image_url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/3/a0/66212b6b44f79/clean.jpg'
         },
         {
+          id: 2,
           title: 'X-Force (2024) #2',
           image_url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/e/f0/664cced10ba8c/clean.jpg'
         },
         {
+          id: 3,
           title: 'X-Force (2024) #3',
           image_url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/e/40/6669b76805624/clean.jpg'
         }
@@ -72,6 +75,7 @@ class MarvelService
     {
       results: [
         {
+          id: 1,
           title: 'X-Force (2024) #1',
           image_url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/3/a0/66212b6b44f79/clean.jpg'
         }

@@ -15,6 +15,22 @@
     <div class="comic">
       <%= image_tag(comic[:image_url], alt: comic[:title], width: 200) %>
       <h3><%= comic[:title] %></h3>
+      <% if @favorites.any? { |f| f.comic_id == comic[:id] } %>
+        <%= link_to 'Remove from Favorites', comics_remove_favorite_path(id: @favorites.find { |f| f.comic_id == comic[:id] }.id), data: { turbo_method: :delete } %>
+      <% else %>
+        <%= link_to 'Add to Favorites', comics_add_favorite_path(comic: { id: comic[:id], title: comic[:title], image_url: comic[:image_url] }), data: { turbo_method: :post } %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<h2>Favorites</h2>
+<div class="favorites-list">
+  <% @favorites.each do |favorite| %>
+    <div class="favorite">
+      <%= image_tag(favorite.image_url, alt: favorite.title, width: 200) %>
+      <h3><%= favorite.title %></h3>
+      <%= link_to 'Remove from Favorites', comics_remove_favorite_path(id: favorite.id), data: { turbo_method: :delete } %>
     </div>
   <% end %>
 </div>
