@@ -1,0 +1,20 @@
+
+<%= link_to root_path do %>
+  <h1>Marvel Comics</h1>
+<% end %>
+
+<%= form_with url: comics_search_path, method: :get, local: true do %>
+  <%= label_tag :character_name, "Search by character:" %>
+  <%= text_field_tag :character_name, nil, required: true, placeholder: "Deadpool" %>
+  <%= submit_tag 'Search' %>
+<% end %>
+
+<h2>Comics List</h2>
+<div class="comics-list">
+  <% @comics[:results].each do |comic| %>
+    <div class="comic">
+      <%= image_tag(comic[:image_url], alt: comic[:title], width: 200) %>
+      <h3><%= comic[:title] %></h3>
+    </div>
+  <% end %>
+</div>
