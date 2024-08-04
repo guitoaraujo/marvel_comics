@@ -41,6 +41,6 @@ class ComicsController < ApplicationController
   end
 
   def build_comic_from_params(params)
-    OpenStruct.new(params.to_h)
+    OpenStruct.new(params)
   end
 end

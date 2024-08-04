@@ -1,0 +1,14 @@
+<nav class="navbar">
+    <div class="container">
+        <div class="logo">
+            <%= link_to root_path do %>
+                <%= image_tag 'marvel_logo.png', alt: 'Logo', width: 150 %>
+            <% end %>            
+        </div>
+        <div class="search-bar">
+            <%= form_with url: comics_search_path, method: :get, local: true, class: 'search-form' do %>
+                <%= text_field_tag :query, params[:query], placeholder: 'Deadpool', class: 'search-input' %>
+            <% end %>
+        </div>
+    </div>
+</nav>

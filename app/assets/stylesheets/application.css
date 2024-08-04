@@ -13,12 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
-.comics-list, .favorites-list {
-    display: flex;
-    flex-wrap: wrap;
-}
-.comic, .favorite {
-    margin: 10px;
-    text-align: center;
-}
