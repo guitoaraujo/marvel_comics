@@ -9,9 +9,6 @@ This is a project for integrating with the Marvel API, where you can query and d
 - [Usage](#usage)
 - [Running Tests](#running-tests)
 - [Technologies](#technologies)
-- [Contributing](#contributing)
-- [License](#license)
-- [Author](#author)
 
 ## Description
 
@@ -24,7 +21,7 @@ To run this project locally, follow these steps:
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/username/marvel_comics.git
+   git clone https://github.com/guitoaraujo/marvel_comics.git
    
 2. **Navigate to the project directory:**
 
@@ -94,7 +91,3 @@ This project uses RSpec for testing. To ensure that all tests pass, follow these
 * Backend: Ruby 3.2 & Ruby on Rails 7 (SQLite)
 * API: Marvel API
 * Testing: RSpec
-
-## Running Tests
-
-This project uses RSpec for testing. To ensure that all tests pass, follow these steps:
