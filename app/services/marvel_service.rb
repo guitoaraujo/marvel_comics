@@ -9,28 +9,28 @@ class MarvelService
 
   def fetch_comics(offset: 0, limit: 20)
     query = build_query(limit:, offset:)
-    self.class.get('/comics', query:)
+    # self.class.get('/comics', query:)
 
-    # # MOCK
-    # {
-    #   results: [
-    #     {
-    #       id: 1,
-    #       title: 'X-Force (2024) #1',
-    #       image_url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/3/a0/66212b6b44f79/clean.jpg'
-    #     },
-    #     {
-    #       id: 2,
-    #       title: 'X-Force (2024) #2',
-    #       image_url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/e/f0/664cced10ba8c/clean.jpg'
-    #     },
-    #     {
-    #       id: 3,
-    #       title: 'X-Force (2024) #3',
-    #       image_url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/e/40/6669b76805624/clean.jpg'
-    #     }
-    #   ]
-    # }
+    # MOCK
+    {
+      results: [
+        {
+          id: 1,
+          title: 'X-Force (2024) #1',
+          image_url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/3/a0/66212b6b44f79/clean.jpg'
+        },
+        {
+          id: 2,
+          title: 'X-Force (2024) #2',
+          image_url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/e/f0/664cced10ba8c/clean.jpg'
+        },
+        {
+          id: 3,
+          title: 'X-Force (2024) #3',
+          image_url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/e/40/6669b76805624/clean.jpg'
+        }
+      ]
+    }
   end
 
   def fetch_comics_by_character(character_name:, offset: 0, limit: 20)
