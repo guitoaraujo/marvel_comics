@@ -93,3 +93,12 @@ This project uses RSpec for testing. To ensure that all tests pass, follow these
 * Backend: Ruby 3.2 & Ruby on Rails 7 (SQLite)
 * API: Marvel API
 * Testing: RSpec
+
+## Some Future Improvements
+
+* Make and receive real data from MARVEL API
+* Improve test cases when dealing with real data
+* Improve User pages and links (login, signup, logout...)
+* Handle Rate Limit (rack_attack gem, caching, retries...)
+* Use React 
+* Change database to postgres and deploy to heroku
