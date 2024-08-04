@@ -2,6 +2,8 @@
 
 This is a project for integrating with the Marvel API, where you can query and display information about Marvel comics and characters. The project uses the public Marvel API to retrieve data and display it in a web interface.
 
+* IMPORTANT: at the time I start this project, Marvel API was not working properly. So in order to test things out you need to comment httparty requests and uncomment mock data.
+
 ## Table of Contents
 
 - [Description](#description)
