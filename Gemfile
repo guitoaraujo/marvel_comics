@@ -33,4 +33,7 @@ end
 group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'webmock'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
